@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #1e1e2f, #121212);
+  color: #e5e7eb;
+  scroll-behavior: smooth;
+}
+
+/* --- Added Text Shadows (from previous request) --- */
+h1, h2, h3, .site-title {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 
+               0 0 10px rgba(147, 51, 234, 0.3);
+}
+
+/* Header / Navigation */
+.header {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+}
+
+/* Glassmorphism sections */
+section {
+  backdrop-filter: blur(12px);
+  background: rgba(31, 41, 55, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+
+  /* Strong visible shadow */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9),
+              0 0 25px rgba(147, 51, 234, 0.5);
+
+  margin: 2rem auto; /* separate it from edges */
+  padding: 2rem;
+}
+
+.site-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+.nav-button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.nav-button.bg-white {
+  color: #121212;
+  font-weight: 700;
+}
+.nav-button:hover {
+  background: linear-gradient(135deg, #9333ea, #2563eb);
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(147,51,234,0.5);
+}
+
+/* Section Boxes - (Main content blocks) */
+section {
+  backdrop-filter: blur(12px);
+  background: rgba(31, 41, 55, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  /* Thicker, more pronounced shadow on main sections */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(147,51,234,0.4);
+  transition: all 0.3s ease;
+}
+
+/* Fade-in sections */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-in-out;
+  display: none;
+}
+.fade-section.active {
+  opacity: 1;
+  transform: translateY(0);
+  display: block;
+}
+
+/* Project Cards - UPDATED SHADOW */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: rgba(31, 41, 55, 0.75);
+  border: 1px solid #374151;
+  /* Thicker shadow for projects */
+  box-shadow: 0 15px 45px rgba(0,0,0,0.6), 0 0 25px rgba(147,51,234,0.3); 
+  transition: all 0.3s ease;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, #9333ea, #2563eb, #9333ea);
+  animation: spin 6s linear infinite;
+  z-index: 0;
+  opacity: 0.15;
+  border-radius: 0.75rem;
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  /* Hover shadow also thickened */
+  box-shadow: 0 20px 55px rgba(147,51,234,0.7), 0 0 40px rgba(147,51,234,0.35); 
+  z-index: 10;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Service Cards - UPDATED SHADOW */
+.service-card {
+  background: rgba(31,41,55,0.75);
+  border: 1px solid #374151;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Thicker initial shadow for service cards */
+  box-shadow: 0 15px 45px rgba(0,0,0,0.6), 0 0 25px rgba(147,51,234,0.3);
+}
+.service-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  /* Thicker hover shadow for service cards */
+  box-shadow: 0 20px 55px rgba(147,51,234,0.7), 0 0 40px rgba(147,51,234,0.35);
+}
+.service-card h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+.service-card p {
+  color: #d1d5db;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 0.375rem;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+.accent {
+  background: linear-gradient(135deg, #9333ea, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(147,51,234,0.4);
+}
+.accent:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(147,51,234,0.6);
+}
+
+/* Footer */
+.footer {
+  background: rgba(0,0,0,0.85);
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid #374151;
+  box-shadow: 0 -8px 24px rgba(0,0,0,0.5);
+}

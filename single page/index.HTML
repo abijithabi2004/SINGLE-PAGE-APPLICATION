@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KING OF KING</title>
+  <meta name="description" content="KING OF KING - Hardware and Software Solutions" />
+  <meta name="keywords" content="hardware, software, IT services, SPA, tracking" />
+  <meta name="author" content="KING OF KING" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1e1e2f, #121212);
+      color: #e5e7eb;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+
+    /* Navigation */
+    .nav-button {
+      transition: all 0.4s ease;
+      font-weight: 500;
+    }
+
+    .nav-button:hover {
+      background: linear-gradient(135deg, #9333ea, #2563eb);
+      color: white !important;
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .nav-button.bg-white {
+      color: #121212 !important;
+      font-weight: 700;
+    }
+
+    /* Glassmorphism sections */
+    section {
+      backdrop-filter: blur(12px);
+      background: rgba(31, 41, 55, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Accent buttons */
+    .accent {
+      background: linear-gradient(135deg, #9333ea, #2563eb);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .accent:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0px 6px 16px rgba(147,51,234,0.5);
+    }
+
+    /* Project Cards */
+    .project-card {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      background-color: rgba(31, 41, 55, 0.7);
+      border: 1px solid #374151;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 180deg, #9333ea, #2563eb, #9333ea);
+      animation: spin 6s linear infinite;
+      z-index: 0;
+      opacity: 0.15;
+      border-radius: 0.5rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0px 12px 30px rgba(147,51,234,0.5);
+      z-index: 10;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Fade-in Sections */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+      display: none;
+    }
+
+    .fade-section.active {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+
+    /* Headings */
+h2 {
+  background: linear-gradient(90deg, #9333ea, #2563eb);
+  background-clip: text;
+  -webkit-background-clip: text; /* for Safari/Chrome */
+  color: transparent;
+
+  /* Fallback for non-WebKit browsers */
+  -webkit-text-fill-color: transparent;
+  -webkit-mask-image: linear-gradient(#fff, #fff); /* works in Firefox */
+  mask-image: linear-gradient(#fff, #fff);
+}
+
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="bg-black/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-white text-3xl font-extrabold tracking-wider">KING OF KING</h1>
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex space-x-6">
+        <button class="nav-button bg-white text-black py-2 px-5 rounded-full" data-section="home">Home</button>
+        <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="about">About</button>
+        <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="projects">Projects</button>
+        <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="contact">Contact</button>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-gray-200 text-2xl">☰</button>
+    </nav>
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden flex-col space-y-3 px-6 pb-5 md:hidden">
+      <button class="nav-button bg-white text-black py-2 px-5 rounded-full" data-section="home">Home</button>
+      <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="about">About</button>
+      <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="projects">Projects</button>
+      <button class="nav-button text-gray-300 py-2 px-5 rounded-full" data-section="contact">Contact</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-6 py-10 space-y-12">
+    <!-- Home -->
+    <section id="home" class="fade-section text-center max-w-4xl mx-auto active">
+      <h2 class="text-5xl font-extrabold mb-4">Welcome to KING OF KING</h2>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Service 1 -->
+  <div class="service-card p-6 rounded-xl text-center">
+    <h3 class="text-2xl font-bold mb-3">💻 Software Solutions</h3>
+    <p class="text-gray-300">Custom software, web apps, and mobile solutions tailored to your business needs.</p>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="service-card p-6 rounded-xl text-center">
+    <h3 class="text-2xl font-bold mb-3">🛠 Hardware Support</h3>
+    <p class="text-gray-300">Reliable hardware installations, upgrades, and troubleshooting services.</p>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="service-card p-6 rounded-xl text-center">
+    <h3 class="text-2xl font-bold mb-3">🌐 IT Consulting</h3>
+    <p class="text-gray-300">Expert guidance to optimize your technology infrastructure and strategy.</p>
+  </div>
+</div>
+
+      <p class="text-gray-300 text-xl">Your trusted partner for innovative hardware and software solutions.</p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="fade-section max-w-4xl mx-auto">
+      <h2 class="text-4xl font-extrabold mb-6">About Us</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        At KING OF KING, we are dedicated to providing cutting-edge solutions in both the hardware and software sectors.
+        We specialize in building robust systems and dynamic applications that are designed for performance and user experience.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="fade-section">
+      <h2 class="text-4xl font-extrabold mb-6">Our Projects</h2>
+      <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-section max-w-3xl mx-auto">
+      <h2 class="text-4xl font-extrabold mb-6">Contact Us</h2>
+      <p class="text-gray-300 mb-4">📞 +91 8903343546</p>
+      <p class="text-gray-300 mb-8">
+        📧
+        <a href="mailto:kingofking@gmail.com" class="text-indigo-400 hover:text-indigo-600">kingofking@gmail.com</a>
+      </p>
+      <form class="space-y-6" action="https://formspree.io/f/mzzbloyk" method="POST">
+        <input type="text" name="name" placeholder="Name" required class="w-full rounded-md border border-gray-700 bg-gray-800 text-white px-4 py-2" />
+        <input type="email" name="email" placeholder="Email" required class="w-full rounded-md border border-gray-700 bg-gray-800 text-white px-4 py-2" />
+        <textarea name="message" placeholder="Message" rows="5" required class="w-full rounded-md border border-gray-700 bg-gray-800 text-white px-4 py-3"></textarea>
+        <button type="submit" class="w-full accent py-3 rounded-md text-lg tracking-wide">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/80 text-gray-400 text-center py-6 mt-auto border-t border-gray-700">
+    <p class="text-sm">&copy; 2025 KING OF KING. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectsData = [
+        { title: "Single Page Application", description: "Dynamic and responsive SPA for seamless user experience.", link: "#" },
+        { title: "Bus Tracker", description: "Real-time bus tracker with schedule monitoring.", link: "#" },
+        { title: "Android UI", description: "Sleek and modern UI tailored for Android apps.", link: "#" }
+      ];
+      const navButtons = document.querySelectorAll('.nav-button');
+      const projectsContainer = document.getElementById('projects-container');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuBtn = document.getElementById('menu-btn');
+
+      // Load projects dynamically
+      projectsData.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card relative z-10';
+        card.innerHTML = `
+          <h3 class="text-white text-xl font-semibold mb-3">${p.title}</h3>
+          <p class="text-gray-300 mb-4">${p.description}</p>
+          <a href="${p.link}" class="text-indigo-400 hover:text-indigo-600 font-semibold">Learn More →</a>
+        `;
+        projectsContainer.appendChild(card);
+      });
+
+      // Function to hide all sections and show the selected one
+      const showSection = (id) => {
+        document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+        const target = document.getElementById(id);
+        if (target) target.classList.add('active');
+
+        navButtons.forEach(btn => {
+          btn.classList.toggle('bg-white', btn.dataset.section === id);
+          btn.classList.toggle('text-black', btn.dataset.section === id);
+          btn.classList.toggle('text-gray-300', btn.dataset.section !== id);
+        });
+
+        mobileMenu.classList.add('hidden'); // Close mobile menu on selection
+      };
+
+      // Add event listeners for navigation buttons
+      navButtons.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
+
+      // Mobile menu toggle button
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Show default home section on page load
+      showSection('home');
+    });
+  </script>
+</body>
+</html>
